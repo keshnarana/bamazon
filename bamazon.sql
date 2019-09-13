@@ -17,8 +17,6 @@ CREATE TABLE products (
 	PRIMARY KEY (item_id)
 );
 
--- default products vals -- 
--- populating base product sales data assuming past sales have occurred so that profitability won't be all deeply negative -- 
 INSERT INTO products (product_name, department_name, price, stock_quantity, product_sales)
 VALUES ("samsung phone","electronics",900.99,60,111), ("jeans","clothes",50,80,235), 
 			 ("Lenovo Yoga 720 Laptop", "electronics", 949.99, 4, 50), 
@@ -41,7 +39,6 @@ VALUES ("electronics", 10000),  ("clothes", 1000);
 SELECT * FROM products;
 SELECT * FROM departments;
 
--- inner join for profit query --
 SELECT department_id, departments.department_name, over_head_costs, SUM(product_sales) AS product_sales,
 	SUM(product_sales) - over_head_costs AS total_profit
 FROM departments
